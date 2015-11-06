@@ -5,6 +5,7 @@
 import sys
 import BayesNet
 import Prior
+import Rejection
 import random
 
 def readProbabilities(inputFile):
@@ -37,9 +38,11 @@ def main (argv):
 	# 	probabilities.append(random.random())
 
 	bayesNet = createBayesNet()
-
 	prior = Prior.Prior(bayesNet)
 	prior.calculatePriors(probabilities)
+
+	rejection = Rejection.Rejection(bayesNet)
+	rejection.calculateRejections(probabilities)
 
 	return
 

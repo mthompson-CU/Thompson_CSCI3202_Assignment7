@@ -1,20 +1,20 @@
 # Author: Matthew Thompson
 # Date: 11/5/15
-# Prints the estimates of the probabilites assignment in Assignment 7 writeup using Prior Sampling
+# Prints the estimates of the probabilites assignment in Assignment 7 writeup using Rejection Sampling
 
 import SampleGenerator
 
-class Prior():
+class Rejection():
 	def __init__(self, bayesNet):
 		self.bayesNet = bayesNet
 		return
 
-	def calculatePriors(self, probabilities):
+	def calculateRejections(self, probabilities):
 		sampleGenerator = SampleGenerator.SampleGenerator(self.bayesNet)
 		samples = sampleGenerator.generateSamples(probabilities)
 
-		print 'Prior Sampling:'
-		print '---------------'
+		print 'Rejection Sampling:'
+		print '-------------------'	
 
 		# P(cloudy  = true)
 		cloudySamples = 0.0
