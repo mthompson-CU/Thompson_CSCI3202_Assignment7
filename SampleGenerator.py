@@ -24,19 +24,19 @@ class SampleGenerator():
 						if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['wet']['tt']):
 							self.samples.append('+c, +s, +r, +w')
 						# Wet false
-						elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['wet']['tt']):
+						else:
 							self.samples.append('+c, +s, +r, -w')
 					# Rain false
-					elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['rain']['true']):
+					else:
 						currentProbabilityIndex += 1
 						# Wet true
 						if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['wet']['tf']):
 							self.samples.append('+c, +s, -r, +w')
 						# Wet false
-						elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['wet']['tf']):
+						else:
 							self.samples.append('+c, +s, -r, -w')
 				# Sprinkler false
-				elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['sprinkler']['true']):
+				else:
 					currentProbabilityIndex += 1
 					# Rain true
 					if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['rain']['true']):
@@ -45,20 +45,20 @@ class SampleGenerator():
 						if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['wet']['ft']):
 							self.samples.append('+c, -s, +r, +w')
 						# Wet false
-						elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['wet']['ft']):
+						else:
 							self.samples.append('+c, -s, +r, -w')
 					# Rain false
-					elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['rain']['true']):
+					else:
 						currentProbabilityIndex += 1
 						# Wet true
 						if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['wet']['ff']):
 							self.samples.append('+c, -s, -r, +w')
 						# Wet false
-						elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['wet']['ff']):
+						else:
 							self.samples.append('+c, -s, -r, -w')
 
 			# Cloudy false
-			elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['cloudy']['true']):
+			else:
 				currentProbabilityIndex += 1
 				# Sprinkler true
 				if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['sprinkler']['false']):
@@ -70,19 +70,19 @@ class SampleGenerator():
 						if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['wet']['tt']):
 							self.samples.append('-c, +s, +r, +w')
 						# Wet false
-						elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['wet']['tt']):
+						else:
 							self.samples.append('-c, +s, +r, -w')
 					# Rain false
-					elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['rain']['false']):
+					else:
 						currentProbabilityIndex += 1
 						# Wet true
 						if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['wet']['tf']):
 							self.samples.append('-c, +s, -r, +w')
 						# Wet false
-						elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['wet']['tf']):
+						else:
 							self.samples.append('-c, +s, -r, -w')
 				# Sprinkler false
-				elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['sprinkler']['false']):
+				else:
 					currentProbabilityIndex += 1
 					# Rain true
 					if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['rain']['false']):
@@ -91,22 +91,22 @@ class SampleGenerator():
 						if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['wet']['ft']):
 							self.samples.append('-c, -s, +r, +w')
 						# Wet false
-						elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['wet']['ft']):
+						else:
 							self.samples.append('-c, -s, +r, -w')
 					# Rain false
-					elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['rain']['false']):
+					else:
 						currentProbabilityIndex += 1
 						# Wet true
 						if (probabilities[currentProbabilityIndex] < self.bayesNet.graph.node['wet']['ff']):
 							self.samples.append('-c, -s, -r, +w')
 						# Wet false
-						elif (probabilities[currentProbabilityIndex] >= self.bayesNet.graph.node['wet']['ff']):
+						else:
 							self.samples.append('-c, -s, -r, -w')
 
-		print '\nSamples:'
-		print '--------'
-		for sample in self.samples:
-			print sample
+		# print '\nSamples:'
+		# print '--------'
+		# for sample in self.samples:
+		# 	print sample
 
-		print 'Number of samples: ' + str(len(self.samples)) + '\n'
+		# print 'Number of samples: ' + str(len(self.samples)) + '\n'
 		return self.samples

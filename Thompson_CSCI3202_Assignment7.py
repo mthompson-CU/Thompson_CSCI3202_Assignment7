@@ -34,7 +34,7 @@ def main (argv):
 	probabilities = readProbabilities(argv[1])
 
 	# probabilities = []
-	# for x in range(100):
+	# for x in range(10000000):
 	# 	probabilities.append(random.random())
 
 	bayesNet = createBayesNet()
